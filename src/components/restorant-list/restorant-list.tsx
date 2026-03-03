@@ -9,7 +9,7 @@ function RestorantsList() {
     <>
       <div className="container">
         {restorants.map((o) => (
-          <RestorantCard {...o}></RestorantCard>
+          <RestorantCard key={o.id} {...o}></RestorantCard>
         ))}
       </div>
     </>

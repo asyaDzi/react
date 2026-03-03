@@ -6,7 +6,7 @@ function ReviewList(reviews: { review: Review[] }) {
     <>
       <ul>
         {reviews.review.map((m) => (
-          <li className="review-el-block">
+          <li key={m.id} className="review-el-block">
             <div className="review-el-name">{m.user}</div>
             <div className="review-el-price">
               <img className="review-el-img" src="./src/assets/star.svg" />

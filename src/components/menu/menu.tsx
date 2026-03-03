@@ -6,13 +6,13 @@ function MenuList(menus: { menu: Menu[] }) {
     <>
       <ul>
         {menus.menu.map((m) => (
-          <li className="menu-el-block">
+          <li key={m.id} className="menu-el-block">
             <div className="menu-el-name">{m.name}</div>
             <div className="menu-el-price">{m.price}</div>
             <div className="menu-el-block-last">
               <b>Состав:</b>
-              {m.ingredients.map((i) => (
-                <span>{i}</span>
+              {m.ingredients.map((k, i) => (
+                <span key={i}>{k}</span>
               ))}
             </div>
           </li>
