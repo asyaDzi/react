@@ -1,22 +1,22 @@
-import type { Review } from "../../interfaces/restorant";
+
+import type { Review } from "../../interfaces/restaurant";
 import "./review.css";
+import image from '../../assets/star.svg'
 
 function ReviewList(reviews: { review: Review[] }) {
   return (
-    <>
       <ul>
-        {reviews.review.map((m) => (
-          <li key={m.id} className="review-el-block">
-            <div className="review-el-name">{m.user}</div>
+        {reviews.review.map((review) => (
+          <li key={review.id} className="review-el-block">
+            <div className="review-el-name">{review.user}</div>
             <div className="review-el-price">
-              <img className="review-el-img" src="./src/assets/star.svg" />
-              {m.rating}
+              <img className="review-el-img" src={image} />
+              {review.rating}
             </div>
-            <div className="review-el-block-last">{m.text}</div>
+            <div className="review-el-block-last">{review.text}</div>
           </li>
         ))}
       </ul>
-    </>
   );
 }
 

@@ -1,9 +1,9 @@
-import RestorantsList from "./components/restorant-list/restorant-list";
+import RestaurantsList from "./components/restaurant-list/restorant-list";
 
 function App() {
   return (
     <div>
-      <RestorantsList></RestorantsList>
+      <RestaurantsList></RestaurantsList>
     </div>
   );
 }
