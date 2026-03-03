@@ -1,0 +1,10 @@
+h2 {
+    color: blueviolet;
+    font-weight: 600;
+}
+
+.card-wrapper {
+    border: 1px grey dashed;
+    border-radius: 12px;
+    padding: 10px;
+}
