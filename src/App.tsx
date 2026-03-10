@@ -1,11 +1,7 @@
-import RestaurantsList from "./components/restaurant-list/restorant-list";
+import Layout from "./components/layout/layout";
 
 function App() {
-  return (
-    <div>
-      <RestaurantsList></RestaurantsList>
-    </div>
-  );
+  return <Layout></Layout>;
 }
 
 export default App;
