@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./counter.css";
 
-function Conter() {
+function Counter() {
   const initialValue = 0;
   const maxValue = 5;
   const [counter, setCounter] = useState(initialValue);
@@ -23,4 +23,4 @@ function Conter() {
   );
 }
 
-export default Conter;
+export default Counter;
