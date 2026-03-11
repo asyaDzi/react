@@ -1,9 +1,10 @@
 import { useState } from "react";
 import "./counter.css";
 
+const initialValue = 0;
+const maxValue = 5;
+
 function Counter() {
-  const initialValue = 0;
-  const maxValue = 5;
   const [counter, setCounter] = useState(initialValue);
 
   const increaseCounter = () => {
@@ -16,9 +17,9 @@ function Counter() {
 
   return (
     <div className="counter-aligner">
-      <button onClick={() => increaseCounter()}>+</button>
+      <button onClick={increaseCounter}>+</button>
       <div>{counter}</div>
-      <button onClick={() => decreaseCounter()}>-</button>
+      <button onClick={decreaseCounter}>-</button>
     </div>
   );
 }

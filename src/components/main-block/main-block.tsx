@@ -12,12 +12,12 @@ function RestaurantsList(restaurants: { restaurantsArray: Restaurant[] }) {
         restaurant={restaurants.restaurantsArray}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-      ></TabButtons>
+      />
 
       <RestaurantCard
         key={restaurants.restaurantsArray[activeTab].id}
         {...restaurants.restaurantsArray[activeTab]}
-      ></RestaurantCard>
+      />
     </div>
   );
 }

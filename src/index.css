@@ -59,6 +59,35 @@ button:focus-visible {
   height: 100vh;
 }
 
+article {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+}
+
+footer,
+header {
+  color: azure;
+  text-align: center;
+}
+
+header {
+  background: deeppink;
+  padding: 1rem;
+}
+
+main {
+  background: whitesmoke;
+  color: #444;
+  padding: 1rem;
+}
+
+footer {
+  background: purple;
+  padding: 1rem;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
