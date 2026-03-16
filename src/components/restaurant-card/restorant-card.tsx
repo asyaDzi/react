@@ -1,4 +1,3 @@
-
 import type { Restaurant } from "../../interfaces/restaurant";
 import MenuList from "../menu/menu";
 import ReviewList from "../review/review";
