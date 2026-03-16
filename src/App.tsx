@@ -1,3 +1,5 @@
+import { useState, type SetStateAction } from "react";
+import Scroll from "./components/horizontar-scroll/horizontal-scroll";
 import RestaurantsList from "./components/main-block/main-block";
 import Restaurants from "./const/mock";
 interface ParentCompProps {
@@ -8,9 +10,21 @@ const notEmptyData = Restaurants.length > 0;
 
 const MainComponent: React.FC<ParentCompProps> = (props) => {
   const { childComp } = props;
+  const [progress, setProgress] = useState(0);
+
+  const scrollHandler = (event: React.UIEvent<HTMLDivElement>) => {
+    const containerHeight = event.currentTarget.clientHeight;
+    const scrollHeight = event.currentTarget.scrollHeight;
+    const scrollTop = event.currentTarget.scrollTop;
+    console.log(progress);
+
+    setProgress((scrollTop / (scrollHeight - containerHeight)) * 100);
+  };
+
   return (
-    <div>
-      <article className="grid-wrapper">
+    <div className="scroll-wrapper" onScroll={scrollHandler}>
+      <Scroll {...{ width: progress }} />
+      <article>
         <header>Шапка</header>
         <main>
           {notEmptyData ? childComp : <div>Нет доступных ресторанов</div>}

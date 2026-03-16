@@ -1,25 +1,18 @@
-import { useState } from "react";
 import "./counter.css";
+import type { ReviewRaitConst } from "../../interfaces/review";
+import counterLogic from "./counter-logic";
 
-const initialValue = 0;
-const maxValue = 5;
-
-function Counter() {
-  const [counter, setCounter] = useState(initialValue);
-
-  const increaseCounter = () => {
-    return counter + 1 <= maxValue ? setCounter(counter + 1) : counter;
-  };
-
-  const decreaseCounter = () => {
-    return counter - 1 >= initialValue ? setCounter(counter - 1) : counter;
-  };
+function Counter({ min, max }: ReviewRaitConst) {
+  const { counter, increaseCounter, decreaseCounter } = counterLogic({
+    min,
+    max,
+  });
 
   return (
     <div className="counter-aligner">
-      <button onClick={increaseCounter}>+</button>
-      <div>{counter}</div>
       <button onClick={decreaseCounter}>-</button>
+      <div>{counter}</div>
+      <button onClick={increaseCounter}>+</button>
     </div>
   );
 }
