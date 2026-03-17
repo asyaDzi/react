@@ -16,7 +16,6 @@ const MainComponent: React.FC<ParentCompProps> = (props) => {
     const containerHeight = event.currentTarget.clientHeight;
     const scrollHeight = event.currentTarget.scrollHeight;
     const scrollTop = event.currentTarget.scrollTop;
-    console.log(progress);
 
     setProgress((scrollTop / (scrollHeight - containerHeight)) * 100);
   };
