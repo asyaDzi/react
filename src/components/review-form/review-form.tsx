@@ -1,12 +1,11 @@
 import { useReducer } from "react";
 import { INITIAL_FORM, reviewReducer } from "../reducers/reducers";
-import { ReviewFormTypes, type ReviewRaitConst } from "../../interfaces/review";
+import { ReviewFormTypes } from "../../interfaces/review";
 import styles from "./review-form.module.css";
 
-export default function ReviewForm({ max, min }: ReviewRaitConst) {
+export default function ReviewForm() {
   const [form, dispatch] = useReducer(reviewReducer, INITIAL_FORM);
-
-  const { name, text, rait } = form;
+  const { name, text } = form;
 
   return (
     <form>
@@ -34,20 +33,6 @@ export default function ReviewForm({ max, min }: ReviewRaitConst) {
               payload: event.target.value,
             })
           }
-        />
-      </div>
-      <div className={styles.formField}>
-        <label>Оценка:</label>
-        <input
-          className={styles.formInput}
-          type="number"
-          value={rait}
-          onChange={(e) => {
-            dispatch({
-              type: ReviewFormTypes.setRaiting,
-              payload: Math.min(max, Math.max(min, Number(e.target.value))),
-            });
-          }}
         />
       </div>
       <button

@@ -1,7 +1,8 @@
 import type { Review } from "../../interfaces/restaurant";
-import "./review.css";
 import image from "../../assets/star.svg";
 import ReviewForm from "../review-form/review-form";
+import Counter from "../counter/counter";
+import styles from "./review.module.css";
 
 const valid = {
   min: 0,
@@ -13,17 +14,21 @@ function ReviewList(reviews: { review: Review[] }) {
     <div>
       <ul>
         {reviews.review.map((review) => (
-          <li key={review.id} className="review-el-block">
-            <div className="review-el-name">{review.user}</div>
-            <div className="review-el-price">
-              <img className="review-el-img" src={image} />
+          <li key={review.id} className={styles.reviewBlock}>
+            <div className={styles.reviewName}>{review.user}</div>
+            <div className={styles.reviewPrice}>
+              <img className={styles.reviewImg} src={image} />
               {review.rating}
             </div>
-            <div className="review-el-block-last">{review.text}</div>
+            <div className={styles.reviewElLast}>{review.text}</div>
           </li>
         ))}
       </ul>
-      <ReviewForm {...valid} />
+      <div className={styles.reviewWrapper}>
+        <h3>Оценка:</h3>
+        <Counter {...valid} />
+        <ReviewForm />
+      </div>
     </div>
   );
 }

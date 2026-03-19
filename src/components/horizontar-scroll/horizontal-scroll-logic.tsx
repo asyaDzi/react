@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function scrollLogic() {
+export default function useScrollLogic() {
   const [progress, setProgress] = useState(0);
 
   const scrollHandler = (event: React.UIEvent<HTMLDivElement>) => {

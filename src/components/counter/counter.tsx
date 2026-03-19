@@ -1,9 +1,9 @@
 import "./counter.css";
-import type { ReviewRaitConst } from "../../interfaces/review";
-import counterLogic from "./counter-logic";
+import type { ReviewRaitConst as CounterPropsConst } from "../../interfaces/review";
+import useCounterLogic from "./counter-logic";
 
-function Counter({ min, max }: ReviewRaitConst) {
-  const { counter, increaseCounter, decreaseCounter } = counterLogic({
+function Counter({ min, max }: CounterPropsConst) {
+  const { counter, increaseCounter, decreaseCounter } = useCounterLogic({
     min,
     max,
   });
