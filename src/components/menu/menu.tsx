@@ -2,6 +2,10 @@ import type { Menu } from "../../interfaces/restaurant";
 import Counter from "../counter/counter";
 import Dish from "../dish/dish";
 import "./menu.css";
+const menuExtremum = {
+  min: 0,
+  max: 5,
+};
 
 function MenuList(menus: { menu: Menu[] }) {
   return (
@@ -9,7 +13,7 @@ function MenuList(menus: { menu: Menu[] }) {
       {menus.menu.map((dish) => (
         <li key={dish.id} className="menu-el-block">
           <Dish {...dish} />
-          <Counter></Counter>
+          <Counter {...menuExtremum}></Counter>
         </li>
       ))}
     </ul>

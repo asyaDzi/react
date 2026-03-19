@@ -1,0 +1,13 @@
+.formField {
+    margin: 10px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+.formInput {
+    border-color: blueviolet;
+}
+.formSubmit {
+    background-color: darkblue;
+    color: white;
+}

@@ -9,9 +9,9 @@ function RestaurantCard({ name, menu, reviews }: Restaurant) {
     <div className="card-wrapper">
       <h2>{name}</h2>
       <h3>Меню:</h3>
-      <MenuList menu={menu}></MenuList>
+      <MenuList menu={menu} />
       <h3>Отзывы :</h3>
-      <ReviewList review={reviews}></ReviewList>
+      <ReviewList review={reviews} />
     </div>
   );
 }
