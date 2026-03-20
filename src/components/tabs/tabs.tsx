@@ -1,5 +1,5 @@
 import type { Restaurant } from "../../interfaces/restaurant";
-import "./tabs.css";
+import styles from "./tabs.module.css";
 
 export default function TabButtons(restaurants: {
   restaurant: Restaurant[];
@@ -7,11 +7,13 @@ export default function TabButtons(restaurants: {
   setActiveTab: (index: number) => void;
 }) {
   return (
-    <div className="tabs-header">
+    <div className={styles.tabsHeader}>
       {restaurants.restaurant.map((restorant, index) => (
         <li
           className={
-            index === restaurants.activeTab ? "active tab-button" : "tab-button"
+            index === restaurants.activeTab
+              ? `${styles.tabButton} ${styles.active}`
+              : styles.tabButton
           }
           key={restorant.id}
           onClick={() => restaurants.setActiveTab(index)}

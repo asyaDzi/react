@@ -1,6 +1,7 @@
-import "./counter.css";
+import styles from "./counter.module.css";
 import type { ReviewRaitConst as CounterPropsConst } from "../../interfaces/review";
 import useCounterLogic from "./counter-logic";
+import Button from "../button/button";
 
 function Counter({ min, max }: CounterPropsConst) {
   const { counter, increaseCounter, decreaseCounter } = useCounterLogic({
@@ -9,10 +10,10 @@ function Counter({ min, max }: CounterPropsConst) {
   });
 
   return (
-    <div className="counter-aligner">
-      <button onClick={decreaseCounter}>-</button>
+    <div className={styles.counterAligner}>
+      <Button text="-" disabled={counter <= min} action={decreaseCounter} />
       <div>{counter}</div>
-      <button onClick={increaseCounter}>+</button>
+      <Button text="+" disabled={counter >= max} action={increaseCounter} />
     </div>
   );
 }

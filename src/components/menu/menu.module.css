@@ -1,0 +1,5 @@
+.menuBlock {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #e7f2f9;
+}
