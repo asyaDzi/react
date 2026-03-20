@@ -3,6 +3,8 @@ import image from "../../assets/star.svg";
 import ReviewForm from "../review-form/review-form";
 import Counter from "../counter/counter";
 import styles from "./review.module.css";
+import { useContext } from "react";
+import { AuthContext } from "../auth-provider";
 
 const valid = {
   min: 0,
@@ -10,6 +12,8 @@ const valid = {
 };
 
 function ReviewList(reviews: { review: Review[] }) {
+  const user = useContext(AuthContext);
+
   return (
     <div>
       <ul>
@@ -27,7 +31,7 @@ function ReviewList(reviews: { review: Review[] }) {
       <div className={styles.reviewWrapper}>
         <h3>Оценка:</h3>
         <Counter {...valid} />
-        <ReviewForm />
+        {user && user.user ? <ReviewForm /> : null}
       </div>
     </div>
   );
