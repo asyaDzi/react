@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, type PropsWithChildren } from "react";
 import { AuthContext, type PartialUser } from ".";
-import type { ParentCompProps } from "../../App";
 import type { User } from "../../interfaces/user";
 
 const fakeUser: User = {
@@ -8,7 +7,7 @@ const fakeUser: User = {
   name: "Федор",
 };
 
-export default function AuthProvider({ children }: ParentCompProps) {
+export default function AuthProvider({ children }: PropsWithChildren) {
   const [user, setUser] = useState<PartialUser | null>(null);
 
   const toggleUser = () => {

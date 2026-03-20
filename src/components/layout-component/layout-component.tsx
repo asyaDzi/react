@@ -1,9 +1,9 @@
-import type { ParentCompProps } from "../../App";
+import type { PropsWithChildren } from "react";
 import Header from "../header/header";
 import Scroll from "../horizontar-scroll/horizontal-scroll";
 import useScrollLogic from "../horizontar-scroll/horizontal-scroll-logic";
 
-export default function LayoutComponent({ children }: ParentCompProps) {
+export default function LayoutComponent({ children }: PropsWithChildren) {
   const { progress, scrollHandler } = useScrollLogic();
 
   return (

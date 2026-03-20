@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, type PropsWithChildren } from "react";
 import { ThemeContext, type Theme } from ".";
-import type { ParentCompProps } from "../../App";
 
-export default function ThemeProvider({ children }: ParentCompProps) {
+export default function ThemeProvider({ children }: PropsWithChildren) {
   const [theme, setTheme] = useState<Theme>("light");
 
   const toggleTheme = () => {

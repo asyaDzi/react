@@ -6,6 +6,6 @@ export function useAuth() {
   if (context === undefined) {
     throw new Error("useAuth must be used within a AuthProvider");
   }
-  console.log(context);
+
   return context;
 }

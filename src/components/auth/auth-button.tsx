@@ -5,12 +5,10 @@ export const AuthButton = () => {
   const { user, toggleUser } = useAuth();
 
   return (
-    <>
-      <Button
-        text={user ? "Выйти" : "Войти"}
-        disabled={false}
-        action={toggleUser}
-      />
-    </>
+    <Button
+      text={user ? "Выйти" : "Войти"}
+      disabled={false}
+      action={toggleUser}
+    />
   );
 };

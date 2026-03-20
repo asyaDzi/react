@@ -4,7 +4,7 @@ import ClassNames from "classnames";
 import styles from "./button.module.css";
 import { ThemeContext } from "../theme-provider";
 
-function Button(this: any, { text, disabled, action }: ButtonProps) {
+function Button({ text, disabled, action }: ButtonProps) {
   const theme = useContext(ThemeContext);
 
   return (
