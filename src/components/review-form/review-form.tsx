@@ -2,6 +2,7 @@ import { useReducer } from "react";
 import { INITIAL_FORM, reviewReducer } from "../reducers/reducers";
 import { ReviewFormTypes } from "../../interfaces/review";
 import styles from "./review-form.module.css";
+import Button from "../button/button";
 
 export default function ReviewForm() {
   const [form, dispatch] = useReducer(reviewReducer, INITIAL_FORM);
@@ -35,18 +36,17 @@ export default function ReviewForm() {
           }
         />
       </div>
-      <button
-        className={styles.formSubmit}
-        type="submit"
-        onClick={() =>
+      <Button
+        text="Очистить"
+        action={() =>
           dispatch({
             type: ReviewFormTypes.clearFormAction,
             payload: 0,
           })
         }
-      >
-        Очистить
-      </button>
+        disabled={false}
+        type="submit"
+      />
     </form>
   );
 }

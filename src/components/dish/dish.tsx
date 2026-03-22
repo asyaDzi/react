@@ -1,17 +1,18 @@
 import type { Menu } from "../../interfaces/restaurant";
+import styles from "./dish.module.css";
 
 function Dish(dish: Menu) {
   return (
-    <div className="container">
-      <div className="menu-el-name">{dish.name}</div>
-      <div className="menu-el-price">{dish.price}</div>
-      <div className="menu-el-block-last">
+    <>
+      <div className={styles.dishName}>{dish.name}</div>
+      <div className={styles.dishPrice}>{dish.price}</div>
+      <div className={styles.dishBlockLast}>
         <b>Состав:</b>
         {dish.ingredients.map((k, i) => (
           <span key={i}>{k}</span>
         ))}
       </div>
-    </div>
+    </>
   );
 }
 

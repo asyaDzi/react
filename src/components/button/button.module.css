@@ -1,0 +1,12 @@
+.button {
+    color:beige;
+    background-color: brown;
+}
+
+.dark {
+    background-color: rgb(58, 0, 48);
+}
+
+.light {
+    background-color: rgb(122, 45, 99);
+}

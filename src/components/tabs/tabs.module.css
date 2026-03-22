@@ -9,20 +9,20 @@ li {
     list-style: none;
 }
 
-.tabs-header {
+.tabsHeader {
     display: flex;
     gap: 15px;
     border-bottom: 3px solid #5733ab;
     margin-bottom: 10px;
 }
 
-.tab-button {
+.tabButton {
     background-color: #c5b4ed;
     padding: 1rem;
     cursor: pointer;
 }
 
-.tab-button.active {
+.active {
     background-color: #5733ab;
     color: #fff;
     cursor: default;

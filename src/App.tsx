@@ -1,36 +1,18 @@
-import Scroll from "./components/horizontar-scroll/horizontal-scroll";
 import RestaurantsList from "./components/main-block/main-block";
 import Restaurants from "./const/mock";
-import useScrollLogic from "./components/horizontar-scroll/horizontal-scroll-logic";
-interface ParentCompProps {
-  childComp?: React.ReactNode;
-}
-
-const notEmptyData = Restaurants.length > 0;
-
-const MainComponent: React.FC<ParentCompProps> = (props) => {
-  const { childComp } = props;
-  const { progress, scrollHandler } = useScrollLogic();
-
-  return (
-    <div className="scroll-wrapper" onScroll={scrollHandler}>
-      <Scroll {...{ width: progress }} />
-      <article>
-        <header>Шапка</header>
-        <main>
-          {notEmptyData ? childComp : <div>Нет доступных ресторанов</div>}
-        </main>
-        <footer>Подвал</footer>
-      </article>
-    </div>
-  );
-};
+import LayoutComponent from "./components/layout-component/layout-component";
+import ThemeProvider from "./components/theme-provider/theme-provider";
+import AuthProvider from "./components/auth-provider/auth-provider";
 
 function App() {
   return (
-    <MainComponent
-      childComp={<RestaurantsList restaurantsArray={Restaurants} />}
-    />
+    <ThemeProvider>
+      <AuthProvider>
+        <LayoutComponent
+          children={<RestaurantsList restaurantsArray={Restaurants} />}
+        />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 
