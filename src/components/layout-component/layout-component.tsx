@@ -2,8 +2,9 @@ import type { PropsWithChildren } from "react";
 import Header from "../header/header";
 import Scroll from "../horizontar-scroll/horizontal-scroll";
 import useScrollLogic from "../horizontar-scroll/horizontal-scroll-logic";
+import { Outlet } from "react-router";
 
-export default function LayoutComponent({ children }: PropsWithChildren) {
+export default function LayoutComponent() {
   const { progress, scrollHandler } = useScrollLogic();
 
   return (
@@ -11,7 +12,7 @@ export default function LayoutComponent({ children }: PropsWithChildren) {
       <Scroll {...{ width: progress }} />
       <article>
         <Header />
-        <main>{children}</main>
+        <Outlet />
         <footer>Подвал</footer>
       </article>
     </div>

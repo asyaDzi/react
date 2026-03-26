@@ -11,7 +11,13 @@ export const ReviewFormTypes = {
   clearFormAction: "CLEAR_FORM_ACTION",
 };
 
-export interface ReviewRaitConst {
+export interface MinMaxProps {
   min: number;
   max: number;
+}
+
+export interface CounterPropsConst extends MinMaxProps {
+  counter: number;
+  increaseCounter: () => void;
+  decreaseCounter: () => void;
 }
