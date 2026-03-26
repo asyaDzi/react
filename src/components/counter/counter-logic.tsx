@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
-import type { ReviewRaitConst } from "../../interfaces/review";
+import type { MinMaxProps } from "../../interfaces/review";
 
-export default function useCounterLogic({ min, max }: ReviewRaitConst) {
+export default function useCounterLogic({ min, max }: MinMaxProps) {
   const [counter, setCounter] = useState(min);
 
   const increaseCounter = useCallback(

@@ -5,9 +5,23 @@ export type Restaurant = {
   reviews: Array<Review>;
 };
 
+export type NormalizedRestaurant = {
+  id: string;
+  name: string;
+  menu: Array<string>;
+  reviews: Array<string>;
+};
+
 export type Review = {
   id: string;
   user: string;
+  text: string;
+  rating: number;
+};
+
+export type NormalizedReview = {
+  id: string;
+  userId: string;
   text: string;
   rating: number;
 };
