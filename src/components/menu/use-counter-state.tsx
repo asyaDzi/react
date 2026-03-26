@@ -1,14 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
-import type { TabProps } from "../restourants-page/restourants-page";
+import { useDispatch } from "react-redux";
 import {
   addToCart,
   removeFromCart,
   selectAmountById,
 } from "../../redux/entities/basket.slice";
 import { useCallback } from "react";
+import type { TabProps } from "../restaurants-page/restaurants-page";
+import { useAppSelector } from "../../redux/hooks";
 
 export function useCounterState({ id }: TabProps) {
-  const amount = useSelector((state: any) => selectAmountById(state, id));
+  const amount = useAppSelector((state) => selectAmountById(state, id));
   const dispatch = useDispatch();
 
   const increaseCounter = useCallback(

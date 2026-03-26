@@ -1,19 +1,18 @@
 import { useContext } from "react";
-import type { NormalizedReview } from "../../interfaces/restaurant";
 import { AuthContext } from "../auth-provider";
 import styles from "./review.module.css";
 import ReviewTemplate from "./review-template";
 import ReviewForm from "../review-form/review-form";
 import ReviewCounter from "./rewiew-counter";
 
-function ReviewPage(reviews: { review: NormalizedReview[] }) {
+function ReviewPage(reviews: { ids: Array<string> }) {
   const user = useContext(AuthContext);
 
   return (
     <div>
       <ul>
-        {reviews.review.map((review) => (
-          <ReviewTemplate key={review.id} {...review} />
+        {reviews.ids.map((id) => (
+          <ReviewTemplate key={id} id={id} />
         ))}
       </ul>
       <div className={styles.reviewWrapper}>

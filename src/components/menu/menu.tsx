@@ -2,12 +2,12 @@ import { useParams } from "react-router";
 import MenuLogic from "./menu-logic";
 
 function MenuList() {
-  const { restourantId } = useParams();
+  const { restaurantId } = useParams();
 
-  if (!restourantId) {
+  if (!restaurantId) {
     return null;
   }
-  return <MenuLogic id={restourantId} />;
+  return <MenuLogic id={restaurantId} />;
 }
 
 export default MenuList;

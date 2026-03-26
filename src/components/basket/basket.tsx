@@ -10,9 +10,9 @@ function BasketPage() {
 
   return (
     <ul>
-      {basket.map(({ id, amount }) => (
-        <li key={id}>
-          {id} - {amount}
+      {basket.map(({ name, amount }) => (
+        <li key={name}>
+          {name} - {amount}
         </li>
       ))}
     </ul>

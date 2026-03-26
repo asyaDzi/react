@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 
 function HomePge() {
-  return <NavLink to="restourants">Restourants</NavLink>;
+  return <NavLink to="restaurants">Страница ресторанов</NavLink>;
 }
 
 export default HomePge;

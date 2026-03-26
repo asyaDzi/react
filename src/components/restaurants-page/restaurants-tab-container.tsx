@@ -1,23 +1,21 @@
-import { useSelector } from "react-redux";
 import { NavLink, type NavLinkRenderProps } from "react-router";
-import { selectRestourantById } from "../../redux/entities/restourants.slice";
 import styles from "../tabs/tabs.module.css";
-import type { TabProps } from "./restourants-page";
+import type { TabProps } from "./restaurants-page";
+import { useAppSelector } from "../../redux/hooks";
+import { selectrestaurantById } from "../../redux/entities/restaurants.slice";
 
 export function TabContainer({ id }: TabProps) {
-  const restourant = useSelector((state: any) =>
-    selectRestourantById(state, id),
-  );
+  const restaurant = useAppSelector((state) => selectrestaurantById(state, id));
 
   return (
     <NavLink
       className={({ isActive }: NavLinkRenderProps) =>
         isActive ? `${styles.tabButton} ${styles.active}` : styles.tabButton
       }
-      to={`/restourants/${id}`}
+      to={`/restaurants/${id}`}
     >
       {() => {
-        return restourant.name;
+        return restaurant.name;
       }}
     </NavLink>
   );

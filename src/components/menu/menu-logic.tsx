@@ -1,26 +1,21 @@
-import { useSelector } from "react-redux";
-import { selectRestourantById } from "../../redux/entities/restourants.slice";
-import type { TabProps } from "../restourants-page/restourants-page";
-import { selectMenuById } from "../../redux/entities/menu.slice";
-import MenuTemplate from "./menu-template";
+import type { TabProps } from "../restaurants-page/restaurants-page";
+import { selectrestaurantById } from "../../redux/entities/restaurants.slice";
+import MenuWrapper from "./menu-wrapper";
+import { useAppSelector } from "../../redux/hooks";
 
 export function MenuLogic({ id }: TabProps) {
-  const menusId = useSelector((state: any) =>
-    selectRestourantById(state, id),
+  const menusId = useAppSelector((state) =>
+    selectrestaurantById(state, id),
   ).menu;
 
-  const menuArray = menusId.map((menu) => {
-    return useSelector((state: any) => selectMenuById(state, menu));
-  });
-
-  if (!menuArray) {
+  if (!menusId.length) {
     return null;
   }
 
   return (
     <ul>
-      {menuArray.map((dish) => (
-        <MenuTemplate key={dish.id} {...dish} />
+      {menusId.map((id) => (
+        <MenuWrapper key={id} id={id} />
       ))}
     </ul>
   );

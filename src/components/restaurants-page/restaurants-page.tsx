@@ -1,8 +1,8 @@
 import { Tabs } from "../tabs/tabs";
 import { useSelector } from "react-redux";
-import { selectRestourantIds } from "../../redux/entities/restourants.slice";
 import { Outlet } from "react-router";
-import { TabContainer } from "./restourants-tab-container";
+import { selectrestaurantIds } from "../../redux/entities/restaurants.slice";
+import { TabContainer } from "./restaurants-tab-container";
 
 export interface TabProps {
   id: string;
@@ -10,13 +10,13 @@ export interface TabProps {
 }
 
 function RestaurantsPage() {
-  const restourantsIds = useSelector(selectRestourantIds);
+  const restaurantsIds = useSelector(selectrestaurantIds);
   return (
     <div>
-      <h1>Restourants Page</h1>
+      <h1>restaurants Page</h1>
 
       <Tabs>
-        {restourantsIds.map((id) => (
+        {restaurantsIds.map((id) => (
           <TabContainer key={id} id={id} />
         ))}
       </Tabs>

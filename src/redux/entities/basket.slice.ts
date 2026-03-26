@@ -5,7 +5,7 @@ import {
 } from "@reduxjs/toolkit";
 
 export interface BasketItem {
-  id: string;
+  name: string;
   amount: number;
 }
 
@@ -40,12 +40,12 @@ export const basketSlice = createSlice({
   },
   selectors: {
     selectBasketItems: (state) =>
-      Object.keys(state).reduce((acc: BasketItem[], id) => {
-        acc.push({ id, amount: state.entities[id] });
+      Object.keys(state).reduce((acc: BasketItem[], name) => {
+        acc.push({ name, amount: state.entities[name] });
 
         return acc;
       }, []),
-    selectAmountById: (state, id) => state.entities[id] || 0,
+    selectAmountById: (state, name) => state.entities[name] || 0,
   },
 });
 
@@ -56,8 +56,8 @@ const selectCartSlice = (state: any) => state[basketSlice.name];
 export const selectBasketItems = createSelector(
   [selectCartSlice],
   (basketSlice) =>
-    Object.keys(basketSlice.entities).reduce((acc: BasketItem[], id) => {
-      acc.push({ id, amount: basketSlice.entities[id] });
+    Object.keys(basketSlice.entities).reduce((acc: BasketItem[], name) => {
+      acc.push({ name, amount: basketSlice.entities[name] });
 
       return acc;
     }, []),

@@ -1,23 +1,18 @@
-import { useSelector } from "react-redux";
-import { selectRestourantById } from "../../redux/entities/restourants.slice";
-import type { TabProps } from "../restourants-page/restourants-page";
-import { selectReviewById } from "../../redux/entities/reviews.slice";
 import ReviewPage from "./review-page";
+import type { TabProps } from "../restaurants-page/restaurants-page";
+import { selectrestaurantById } from "../../redux/entities/restaurants.slice";
+import { useAppSelector } from "../../redux/hooks";
 
 export function ReviewLogic({ id }: TabProps) {
-  const reviewsId = useSelector((state: any) =>
-    selectRestourantById(state, id),
+  const reviewsIds = useAppSelector((state) =>
+    selectrestaurantById(state, id),
   ).reviews;
 
-  const reviewArray = reviewsId.map((review) => {
-    return useSelector((state: any) => selectReviewById(state, review));
-  });
-
-  if (!reviewArray) {
+  if (!reviewsIds.length) {
     return null;
   }
 
-  return <ReviewPage review={reviewArray} />;
+  return <ReviewPage ids={reviewsIds} />;
 }
 
 export default ReviewLogic;

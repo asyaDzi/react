@@ -7,9 +7,9 @@ const initialState: GlobalState<NormalizedRestaurant> = {
   entities: normalizedRestaurants.reduce(
     (
       acc: { [key: string]: NormalizedRestaurant },
-      restourant: NormalizedRestaurant,
+      restaurant: NormalizedRestaurant,
     ) => {
-      acc[restourant.id] = restourant;
+      acc[restaurant.id] = restaurant;
 
       return acc;
     },
@@ -18,15 +18,15 @@ const initialState: GlobalState<NormalizedRestaurant> = {
   ids: normalizedRestaurants.map(({ id }) => id),
 };
 
-export const restourantsSlice = createSlice({
-  name: "restourants",
+export const restaurantsSlice = createSlice({
+  name: "restaurants",
   initialState,
   selectors: {
-    selectRestourantById: (state, id) => state.entities[id],
-    selectRestourantIds: (state) => state.ids,
+    selectrestaurantById: (state, id) => state.entities[id],
+    selectrestaurantIds: (state) => state.ids,
   },
   reducers: {},
 });
 
-export const { selectRestourantById, selectRestourantIds } =
-  restourantsSlice.selectors;
+export const { selectrestaurantById, selectrestaurantIds } =
+  restaurantsSlice.selectors;

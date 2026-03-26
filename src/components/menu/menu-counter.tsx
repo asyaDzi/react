@@ -1,5 +1,5 @@
 import Counter from "../counter/counter";
-import type { TabProps } from "../restourants-page/restourants-page";
+import type { TabProps } from "../restaurants-page/restaurants-page";
 import { useCounterState } from "./use-counter-state";
 
 export default function MenuCounter({ id }: TabProps) {

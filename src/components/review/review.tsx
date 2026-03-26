@@ -2,13 +2,13 @@ import { useParams } from "react-router";
 import ReviewLogic from "./review-logic";
 
 function ReviewList() {
-  const { restourantId } = useParams();
+  const { restaurantId } = useParams();
 
-  if (!restourantId) {
+  if (!restaurantId) {
     return null;
   }
 
-  return <ReviewLogic id={restourantId} />;
+  return <ReviewLogic id={restaurantId} />;
 }
 
 export default ReviewList;

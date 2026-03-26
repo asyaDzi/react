@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { restourantsSlice } from "./entities/restourants.slice";
 import { reviewsSlice } from "./entities/reviews.slice";
 import { menuSlice } from "./entities/menu.slice";
 import { userSlice } from "./entities/users.slice";
 import { basketSlice } from "./entities/basket.slice";
+import { restaurantsSlice } from "./entities/restaurants.slice";
 
 export const store = configureStore({
   reducer: {
-    [restourantsSlice.name]: restourantsSlice.reducer,
+    [restaurantsSlice.name]: restaurantsSlice.reducer,
     [reviewsSlice.name]: reviewsSlice.reducer,
     [menuSlice.name]: menuSlice.reducer,
     [userSlice.name]: userSlice.reducer,
